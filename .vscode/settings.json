@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./pca-transform",
+        "./img-processing",
+        "./filepath-processing"
+    ]
+}

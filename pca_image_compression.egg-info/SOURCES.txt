@@ -1,0 +1,7 @@
+setup.py
+pca_image_compression.egg-info/PKG-INFO
+pca_image_compression.egg-info/SOURCES.txt
+pca_image_compression.egg-info/dependency_links.txt
+pca_image_compression.egg-info/entry_points.txt
+pca_image_compression.egg-info/requires.txt
+pca_image_compression.egg-info/top_level.txt
