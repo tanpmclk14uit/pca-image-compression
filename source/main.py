@@ -1,5 +1,5 @@
 import sys
-sys.path.extend(["pca-transform", "img-processing", "filepath-processing"])
+sys.path.extend(["source/pca-transform", "source/img-processing", "source/filepath-processing"])
 
 import click
 from pca_transform import pca_transform, pca_compose, pca_find_valuable_comp

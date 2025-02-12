@@ -9,6 +9,7 @@ def covariance_matrix(img_data):
 
 def compute_sorted_eigen(cov_matrix):
     eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
+    eigenvectors = np.real_if_close(eigenvectors, tol=1e-5)
     sorted_indices = np.argsort(eigenvalues)[::-1]
     return eigenvalues[sorted_indices], eigenvectors[:, sorted_indices]
 
@@ -32,7 +33,8 @@ def pca_find_valuable_comp(pca_channel, threshold=99.995):
 def pca_transform(pca_channel, n_components):
     def reconstruct_channel(pca):
         projected_data, eigen_vectors, mean, std, _ = pca
-        return np.dot(np.dot(projected_data[:, :n_components], eigen_vectors.T[:n_components, :]), std) + mean
+        reconstructed = np.dot(np.dot(projected_data[:, :n_components], eigen_vectors.T[:n_components, :]), std) + mean
+        return np.real(reconstructed)
     
     compressed_image = np.transpose([reconstruct_channel(pca) for pca in pca_channel.values()], (1, 2, 0))
     return np.array(compressed_image, dtype=np.uint8)
