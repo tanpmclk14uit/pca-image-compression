@@ -1,2 +1,0 @@
-[console_scripts]
-pca_image_compression = pca_image_compression.main:main
